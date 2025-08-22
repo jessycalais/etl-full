@@ -2,6 +2,7 @@
 .git
 credentials.json
 data/processed/analise_consolidada_PQ.xlsx
+data/processed/analise_consolidada_PQ_21-08.xlsx
 app/extracts/__pycache__/
 app/transforms/__pycache__/
 app/load/__pycache__/
