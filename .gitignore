@@ -3,6 +3,7 @@
 credentials.json
 data/processed/analise_consolidada_PQ.xlsx
 data/processed/analise_consolidada_PQ_21-08.xlsx
+/data/processed/analise_consolidada_PQ.csv
 app/extracts/__pycache__/
 app/transforms/__pycache__/
 app/load/__pycache__/
