@@ -20,5 +20,5 @@ def exportar_csv_consolidado(df: pd.DataFrame, nome_arquivo: str) -> None:
         logger.info(f'Arquivo consolidado exportado com sucesso: {ENDERECO}')
     except Exception as erro:
         logger.error(f'Erro ao exportar arquivo consolidado: {erro}')
-        print(f'Erro ao exportar arquivo consolidao: {erro}')  
+        print(f'Erro ao exportar arquivo consolidado: {erro}')  
         raise

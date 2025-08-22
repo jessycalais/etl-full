@@ -12,17 +12,21 @@ from app.utils.log import (
 # GERAL
 def _separar_ano_mes(df: pd.DataFrame, coluna_data: str, num_digitos: int) -> pd.DataFrame:
     df[coluna_data] = df[coluna_data].astype(str).str.zfill(num_digitos)
-    df['ANO'] = df[coluna_data].str[:4]
-    df['MES'] = df[coluna_data].str[4:]
+    df['ANO'] = df[coluna_data].str[:4].astype('Int64')
+    df['MES'] = df[coluna_data].str[4:].astype('Int64')
+    # df['ANO'] = df['ANO'].astype('Int64')
+    # df['MES'] = df['MES'].astype('Int64')
     df.drop(columns=coluna_data, inplace=True)
     df.insert(0, 'ANO', df.pop('ANO'))
     df.insert(1, 'MES', df.pop('MES'))
 
     return df
 
+
 def _coletar_mes(df: pd.DataFrame, coluna_mes: str, num_digitos: int) -> pd.DataFrame:
-    df[coluna_mes].astype(str).str.zfill(num_digitos)
-    df[coluna_mes]=df[coluna_mes].str[1:]   
+    # df[coluna_mes].astype(str).str.zfill(num_digitos)
+    # df[coluna_mes]=df[coluna_mes].str[1:]   
+    df[coluna_mes] = df[coluna_mes].str.replace('M', '', regex=False).astype('Int64')
 
     return df
 
@@ -133,9 +137,9 @@ def _definir_tipos_consolidado(df: pd.DataFrame) -> pd.DataFrame:
     tipos = {
         'ANO': 'int',
         'MES': 'int',
-        'COD_CLIENTE': 'str',
-        'CLIENTE_DESCRICAO': 'str',
-        'MATERIAL_DESCRICAO_CATEGORIA': 'str',
+        'COD_CLIENTE': 'object',
+        'CLIENTE_DESCRICAO': 'object',
+        'MATERIAL_DESCRICAO_CATEGORIA': 'object',
         'VALOR_RUPTURA_MONETARIO': 'float',
         'VALOR_PEDIDO_MONETARIO': 'float',
         'VOLUME_RUPTURA_UND': 'Int64',
@@ -143,12 +147,12 @@ def _definir_tipos_consolidado(df: pd.DataFrame) -> pd.DataFrame:
         'ESTOQUE': 'Int64',
         'DDV': 'float',
         'COBERTURA_DIAS': 'Int64',
-        'TIPO_CLIENTE': 'str',
-        # 'CONTATO_CLIENTE': 'str',
+        'TIPO_CLIENTE': 'object',
+        'CONTATO_CLIENTE': 'object',
         'VLR_VOLUME_REAL': 'Int64',
-        'CIDADE': 'str',
-        'UF': 'str',
-        'PAIS': 'str'      
+        'CIDADE': 'object',
+        'UF': 'object',
+        'PAIS': 'object'      
     }
 
     df = _definir_tipos(df, tipos)

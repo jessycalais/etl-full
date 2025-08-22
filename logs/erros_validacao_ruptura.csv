@@ -1,4 +1,0 @@
-column,failure_case,index,schema_context,check,check_number
-ANO,object,,Column,dtype('int64'),
-MES,object,,Column,dtype('int64'),
-MES,"TypeError(""'>=' not supported between instances of 'str' and 'int'"")",,Column,"in_range(1, 12)",0.0

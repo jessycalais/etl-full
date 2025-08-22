@@ -21,7 +21,7 @@ schema_ruptura = DataFrameSchema({
     'ANO': Column(
         int, 
         # Posssibilidade de inserir novos anos
-        Check.isin(['2021']),
+        Check.isin([2021]), # Retirei aspas
         nullable=True
     ),
     'MES': Column(
@@ -106,7 +106,7 @@ schema_estoque = DataFrameSchema({
 schema_vendas = DataFrameSchema({
     'ANO': Column(
         int,
-        Check.isin(['2021']),
+        Check.isin([2021]), # Atencao, retirei aspas
         nullable=True
     ),      
     'MES': Column(
@@ -156,3 +156,4 @@ def validar_df(df: pd.DataFrame, schema, log) -> pd.DataFrame | None:
         ENDERECO = PASTA_RAIZ / 'logs' / NOME_ARQUIVO
         erro.failure_cases.to_csv(ENDERECO, index=False)
         print(f'Log de erros de validação do DataFrame salvo em: {ENDERECO}.')
+        raise RuntimeError(f'Erros encontrados na validação do DataFrame: {log}!')

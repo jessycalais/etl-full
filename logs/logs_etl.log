@@ -1,40 +1,50 @@
-2025-08-22 19:21:27,567 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
-2025-08-22 19:21:27,567 - INFO - ler_planilha executada com excesso!
-2025-08-22 19:21:27,774 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
-2025-08-22 19:21:27,774 - INFO - ler_planilha executada com excesso!
-2025-08-22 19:21:27,926 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
-2025-08-22 19:21:27,927 - INFO - ler_planilha executada com excesso!
-2025-08-22 19:21:27,969 - INFO - limpar_ruptura executada com excesso!
-2025-08-22 19:21:27,973 - INFO - limpar_estoque executada com excesso!
-2025-08-22 19:21:27,979 - INFO - limpar_vendas executada com excesso!
-2025-08-22 19:21:28,078 - ERROR - Erros encontrados na validação do DataFrame: ruptura!
-2025-08-22 19:21:28,090 - INFO - validar_df executada com excesso!
-2025-08-22 19:21:28,151 - ERROR - Erros encontrados na validação do DataFrame: estoque!
-2025-08-22 19:21:28,155 - INFO - validar_df executada com excesso!
-2025-08-22 19:21:28,201 - ERROR - Erros encontrados na validação do DataFrame: vendas!
-2025-08-22 19:21:28,204 - INFO - validar_df executada com excesso!
-2025-08-22 19:21:28,219 - INFO - Planilhas combinadas (join) com sucesso!
-2025-08-22 19:21:28,220 - INFO - combinar_abas executada com excesso!
-2025-08-22 19:21:28,228 - INFO - Planilhas combinadas (join) com sucesso!
-2025-08-22 19:21:28,229 - INFO - combinar_abas executada com excesso!
-2025-08-22 19:21:28,239 - INFO - limpar_consolidado executada com excesso!
-2025-08-22 19:21:28,260 - INFO - Arquivo consolidado exportado com sucesso: C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\analise_consolidada.csv
-2025-08-22 19:21:28,260 - INFO - exportar_csv_consolidado executada com excesso!
-2025-08-22 19:21:28,358 - INFO - Planilhas individuais salvas com sucesso.
-2025-08-22 19:21:28,359 - INFO - exportar_por_cliente executada com excesso!
-2025-08-22 19:21:29,080 - INFO - Arquivo ruptura_faltaproduto.xlsx salvo com sucesso em C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\ruptura_faltaproduto.xlsx!
-2025-08-22 19:21:29,080 - INFO - exportar_xlsx executada com excesso!
-2025-08-22 19:21:29,674 - INFO - Arquivo estoque.xlsx salvo com sucesso em C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\estoque.xlsx!
-2025-08-22 19:21:29,674 - INFO - exportar_xlsx executada com excesso!
-2025-08-22 19:21:29,748 - INFO - Arquivo vendas.xlsx salvo com sucesso em C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\vendas.xlsx!
-2025-08-22 19:21:29,748 - INFO - exportar_xlsx executada com excesso!
-2025-08-22 19:21:29,752 - INFO - Conexão com BigQuery criada com sucesso!
-2025-08-22 19:21:31,785 - INFO - Dataset casegb-469522.varejo criado ou já existente.
-2025-08-22 19:21:31,785 - INFO - _criar_dataset executada com excesso!
-2025-08-22 19:21:35,189 - INFO - Tabela "casegb-469522.varejo.ruptura_faltaproduto2" criada e dados enviados com sucesso!
-2025-08-22 19:21:35,190 - INFO - enviar_tabela_bq executada com excesso!
-2025-08-22 19:21:35,196 - INFO - Conexão com BigQuery criada com sucesso!
-2025-08-22 19:21:37,093 - INFO - Dataset casegb-469522.varejo criado ou já existente.
-2025-08-22 19:21:37,093 - INFO - _criar_dataset executada com excesso!
-2025-08-22 19:21:40,289 - INFO - Tabela "casegb-469522.varejo.estoque2" criada e dados enviados com sucesso!
-2025-08-22 19:21:40,289 - INFO - enviar_tabela_bq executada com excesso!
+2025-08-22 19:49:12,072 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-22 19:49:12,073 - INFO - ler_planilha executada com excesso!
+2025-08-22 19:49:12,186 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-22 19:49:12,186 - INFO - ler_planilha executada com excesso!
+2025-08-22 19:49:12,227 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-22 19:49:12,227 - INFO - ler_planilha executada com excesso!
+2025-08-22 19:49:12,239 - INFO - limpar_ruptura executada com excesso!
+2025-08-22 19:49:12,241 - INFO - limpar_estoque executada com excesso!
+2025-08-22 19:49:12,244 - INFO - limpar_vendas executada com excesso!
+2025-08-22 19:49:12,276 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-22 19:49:12,276 - INFO - validar_df executada com excesso!
+2025-08-22 19:49:12,294 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-22 19:49:12,294 - INFO - validar_df executada com excesso!
+2025-08-22 19:49:12,304 - INFO - DataFrame validado com sucesso: vendas!
+2025-08-22 19:49:12,304 - INFO - validar_df executada com excesso!
+2025-08-22 19:49:12,310 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-22 19:49:12,310 - INFO - combinar_abas executada com excesso!
+2025-08-22 19:49:12,314 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-22 19:49:12,314 - INFO - combinar_abas executada com excesso!
+2025-08-22 19:49:12,320 - INFO - limpar_consolidado executada com excesso!
+2025-08-22 19:49:12,334 - INFO - Arquivo consolidado exportado com sucesso: C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\analise_consolidada.csv
+2025-08-22 19:49:12,335 - INFO - exportar_csv_consolidado executada com excesso!
+2025-08-22 19:49:12,400 - INFO - Planilhas individuais salvas com sucesso.
+2025-08-22 19:49:12,400 - INFO - exportar_por_cliente executada com excesso!
+2025-08-22 19:49:12,694 - INFO - Arquivo ruptura_faltaproduto.xlsx salvo com sucesso em C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\ruptura_faltaproduto.xlsx!
+2025-08-22 19:49:12,695 - INFO - exportar_xlsx executada com excesso!
+2025-08-22 19:49:12,908 - INFO - Arquivo estoque.xlsx salvo com sucesso em C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\estoque.xlsx!
+2025-08-22 19:49:12,908 - INFO - exportar_xlsx executada com excesso!
+2025-08-22 19:49:12,939 - INFO - Arquivo vendas.xlsx salvo com sucesso em C:\Users\Acer\Downloads\VS_Code\Projetos e Estudos\- PROCESSO SELETIVO - PREPARAÇÃO\12. Cases Técnicos\case_gb\data\processed\vendas.xlsx!
+2025-08-22 19:49:12,939 - INFO - exportar_xlsx executada com excesso!
+2025-08-22 19:49:12,941 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-22 19:49:14,372 - INFO - Dataset casegb-469522.varejo criado ou já existente.
+2025-08-22 19:49:14,372 - INFO - _criar_dataset executada com excesso!
+2025-08-22 19:49:17,951 - INFO - Tabela "casegb-469522.varejo.ruptura_faltaproduto" criada e dados enviados com sucesso!
+2025-08-22 19:49:17,951 - INFO - enviar_tabela_bq executada com excesso!
+2025-08-22 19:49:17,957 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-22 19:49:19,374 - INFO - Dataset casegb-469522.varejo criado ou já existente.
+2025-08-22 19:49:19,374 - INFO - _criar_dataset executada com excesso!
+2025-08-22 19:49:22,560 - INFO - Tabela "casegb-469522.varejo.estoque" criada e dados enviados com sucesso!
+2025-08-22 19:49:22,560 - INFO - enviar_tabela_bq executada com excesso!
+2025-08-22 19:49:22,566 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-22 19:49:24,066 - INFO - Dataset casegb-469522.varejo criado ou já existente.
+2025-08-22 19:49:24,066 - INFO - _criar_dataset executada com excesso!
+2025-08-22 19:49:27,178 - INFO - Tabela "casegb-469522.varejo.vendas" criada e dados enviados com sucesso!
+2025-08-22 19:49:27,178 - INFO - enviar_tabela_bq executada com excesso!
+2025-08-22 19:49:27,180 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-22 19:49:28,466 - INFO - Dataset casegb-469522.varejo criado ou já existente.
+2025-08-22 19:49:28,466 - INFO - _criar_dataset executada com excesso!
+2025-08-22 19:49:31,899 - INFO - Tabela "casegb-469522.varejo.consolidado" criada e dados enviados com sucesso!
+2025-08-22 19:49:31,899 - INFO - enviar_tabela_bq executada com excesso!
