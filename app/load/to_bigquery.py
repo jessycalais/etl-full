@@ -5,32 +5,50 @@ import warnings
 from google.cloud import bigquery
 import pandas as pd
 
+# Imports de pacotes pessoais
+from app.utils.log import (
+    logger, 
+    log
+)
+
 # Ignorar warnings
 warnings.filterwarnings("ignore")
 
-def _criar_conexao_bq():
-    cliente = bigquery.Client.from_service_account_json('credentials.json')
 
+def _criar_conexao_bq() -> bigquery.Client | None:
+    cliente = bigquery.Client.from_service_account_json('credentials.json')
+    logger.info('Conexão com BigQuery criada com sucesso!')
     return cliente
 
+@log
+def _criar_dataset(cliente, id_dataset) -> None:
+    try:
+        dataset = bigquery.Dataset(id_dataset)
+        dataset.location = 'southamerica-east1'
+        cliente.create_dataset(dataset, exists_ok=True)
+        logger.info(f'Dataset {id_dataset} criado ou já existente.')
+    except Exception as erro:
+        logger.error(f'Erro ao criar dataset: {erro}')
 
-def _criar_dataset(cliente, id_dataset):
-    dataset = bigquery.Dataset(id_dataset)
-    dataset.location = 'southamerica-east1'
-    cliente.create_dataset(dataset, exists_ok=True)
-    # return dataset
-
-
+@log
 def enviar_tabela_bq(df: pd.DataFrame, tabela: str, id_dataset: str='casegb-469522.varejo'):
     cliente = _criar_conexao_bq()
+    if cliente is None:
+        logger.error('Não foi possível criar a conexão com o BigQuery.')
+        # Para interromper a execução
+        raise RuntimeError('Falha na conexão com o BigQuery!')
+
     _criar_dataset(cliente, id_dataset)
 
-    job_config = bigquery.LoadJobConfig(
-        write_disposition="WRITE_TRUNCATE",  # Cria a tabela ou substitui se já existir
-    )
-
-    id_tabela = f'casegb-469522.varejo.{tabela}'
-    job = cliente.load_table_from_dataframe(df, id_tabela, job_config=job_config)
-    job.result()  
-    print('==================================')
-    print(f"Tabela '{id_tabela}' criada e dados enviados com sucesso!")
+    try: 
+        job_config = bigquery.LoadJobConfig(
+            write_disposition='WRITE_TRUNCATE',  # Cria a tabela ou substitui se já existir
+        )
+        id_tabela = f'casegb-469522.varejo.{tabela}'
+        job = cliente.load_table_from_dataframe(df, id_tabela, job_config=job_config)
+        job.result()  
+        print('==================================')
+        print(f'Tabela "{id_tabela}" criada e dados enviados com sucesso!')
+        logger.info(f'Tabela "{id_tabela}" criada e dados enviados com sucesso!')
+    except Exception as erro:
+        logger.error(f'Erro ao enviar dados para o BigQuery: {erro}')

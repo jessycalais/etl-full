@@ -5,6 +5,12 @@ from pathlib import Path
 # Imports de pacotes de terceiros
 import pandas as pd
 
+# Imports de pacotes pessoais
+from app.utils.log import (
+    logger, 
+    log
+)
+
 
 def _filtrar_cliente(df):
     codigos = df['COD_CLIENTE'].unique().tolist()
@@ -15,7 +21,7 @@ def _filtrar_cliente(df):
 
     return planilhas_individuais
 
-
+@log
 def exportar_por_cliente(df: pd.DataFrame) -> None:
     planilhas_individuais = _filtrar_cliente(df)
     PASTA_RAIZ = Path(__file__).resolve().parents[2]
@@ -30,7 +36,9 @@ def exportar_por_cliente(df: pd.DataFrame) -> None:
             NOME_ARQUIVO = f'{codigo_cliente}_{contato_cliente}_{DATA}.csv'
             ENDERECO = PASTA_RAIZ / 'data' / 'by_client' / NOME_ARQUIVO
             df_cliente.to_csv(ENDERECO, index=False, encoding='utf-8-sig') 
+        logger.info('Planilhas individuais salvas com sucesso.')
     
     except Exception as erro:
         print(f'Erro ao salvar planilhas: {erro}')
+        logger.error(f'Erro ao salvar planilhas: {erro}')
         raise
