@@ -3,3 +3,7 @@
 guia_e_orientacoes_case/01_Case Analista de Dados_ Instruções.docx
 credentials.json
 data/processed/analise_consolidada_PQ.xlsx
+app/extracts/__pycache__/
+app/transforms/__pycache__/
+app/load/__pycache__/
+__pycache__/
