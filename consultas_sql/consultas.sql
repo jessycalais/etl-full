@@ -1,8 +1,8 @@
-# Perguntas de Negócio
+/* Perguntas de Negócio */
 
-# ==============================================================
+/* ============================================================== */
 
-# QUESTÃO 01. Quais são os 5 clientes com maior valor total de ruptura (Valor Ruptura_$) no período analisado?
+/* QUESTÃO 01. Quais são os 5 clientes com maior valor total de ruptura (Valor Ruptura_$) no período analisado? */
 SELECT  
     COD_CLIENTE AS CODIGO_CLIENTE,
     SUM(VALOR_RUPTURA_MONETARIO) AS TOTAL_RUPTURA
@@ -14,9 +14,9 @@ ORDER BY
 LIMIT
     5;
 
-# ==============================================================
+/* ============================================================== */
 
-# QUESTÃO 02.	No mês mais recente, qual é a categoria de produto com a maior cobertura média de estoque?
+/*  QUESTÃO 02.	No mês mais recente, qual é a categoria de produto com a maior cobertura média de estoque? */
 SELECT
     DESCRICAO_CATEGORIA,
     AVG(COBERTURA_DIAS) AS MEDIA_COBERTURA
@@ -35,9 +35,9 @@ ORDER BY
     2 DESC
 LIMIT 1;
 
-# ==============================================================
+/* ============================================================== */
 
-# QUESTÃO 03.	Qual foi o mês com o maior volume total de vendas (VLR_VOLUME_REAL)?
+/* QUESTÃO 03.	Qual foi o mês com o maior volume total de vendas (VLR_VOLUME_REAL)? */
 SELECT
     CASE MES
         WHEN '01' THEN 'Janeiro'
@@ -61,14 +61,19 @@ ORDER BY
     SUM(VLR_VOLUME_REAL) DESC
 LIMIT 1;
 
-# ==============================================================
+/* ============================================================== */
 
-# QUESTÃO 04.	Levante uma lista de clientes que, no último mês disponível na base, tiveram uma taxa de ruptura (Ruptura_%) e uma cobertura de estoque em um nível que pode representar um risco para o negócio. (fique livre para determinar os níveis de risco)
-# ---------
+/* QUESTÃO 04.	Levante uma lista de clientes que, no último mês disponível na base, 
+tiveram uma taxa de ruptura (Ruptura_%) e uma cobertura de estoque em um nível que 
+pode representar um risco para o negócio. (fique livre para determinar os níveis de risco) */
+/*  --------- */
 --JUSTIFICATIVA:
--- i. Ruptura escolhida: risco se maior do que 10%. O critério foi escolhido com fundamentação teórica. Veja dissertação de Mestrado "A REAÇÃO DO CONSUMIDOR FRENTE À RUPTURA NO VAREJO": https://repositorio.fgv.br/server/api/core/bitstreams/be9ca766-e095-46af-98e1-3a8ea96b3d31/content;
--- ii. Cobertura Média em Risco: menor do que 15 dias. Fiz essa escolha supondo que os produtos são abastecidos a cada duas semanas.
-# ---------
+-- i. Ruptura escolhida: risco se maior do que 10%. O critério foi escolhido com fundamentação teórica. 
+-- Veja dissertação de Mestrado "A REAÇÃO DO CONSUMIDOR FRENTE À RUPTURA NO VAREJO": 
+-- https://repositorio.fgv.br/server/api/core/bitstreams/be9ca766-e095-46af-98e1-3a8ea96b3d31/content;
+-- ii. Cobertura Média em Risco: menor do que 15 dias. Fiz essa escolha supondo que os produtos são abastecidos 
+-- a cada duas semanas.
+/* --------- */
 SELECT  
     COD_CLIENTE,
     CLIENTE_DESCRICAO,
