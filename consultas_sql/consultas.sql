@@ -75,4 +75,50 @@ pode representar um risco para o negócio. (fique livre para determinar os níve
 -- ii. Cobertura Média em Risco: menor do que 15 dias. Fiz essa escolha supondo que os produtos são abastecidos 
 -- a cada duas semanas.
 
--- REVISAR
+
+WITH ruptura_mediana_por_cliente AS (
+    SELECT DISTINCT
+        CLIENTE_DESCRICAO,
+        PERCENTILE_CONT(RUPTURA_PERCENTUAL, 0.5) OVER(PARTITION BY CLIENTE_DESCRICAO) AS RUPTURA_MEDIANA_POR_CLIENTE
+    FROM 
+        `varejo.ruptura_faltaproduto`
+    WHERE 
+        MES = (SELECT MAX(MES) FROM `varejo.ruptura_faltaproduto`)
+),
+cobertura_mediana_por_cliente AS (
+    SELECT DISTINCT
+        NOME_CLIENTE,
+        PERCENTILE_CONT(COBERTURA_DIAS, 0.5) OVER(PARTITION BY NOME_CLIENTE) AS COBERTURA_MEDIANA_POR_CLIENTE
+    FROM 
+        `varejo.estoque`
+    WHERE 
+        MES = (SELECT MAX(MES) FROM `varejo.estoque`)
+)
+SELECT
+    r.CLIENTE_DESCRICAO,
+    r.RUPTURA_MEDIANA_POR_CLIENTE,
+    c.COBERTURA_MEDIANA_POR_CLIENTE      
+FROM 
+    ruptura_mediana_por_cliente r
+    JOIN cobertura_mediana_por_cliente c
+    ON r.CLIENTE_DESCRICAO = c.NOME_CLIENTE
+WHERE
+    r.RUPTURA_MEDIANA_POR_CLIENTE >= (
+        SELECT 
+            PERCENTILE_CONT(RUPTURA_PERCENTUAL, 0.5) OVER() AS RUPTURA_MEDIA_MENSAL
+        FROM 
+            `varejo.ruptura_faltaproduto`
+        WHERE 
+            MES = (SELECT MAX(MES) FROM `varejo.ruptura_faltaproduto`)
+        LIMIT 1
+    )
+    AND c.COBERTURA_MEDIANA_POR_CLIENTE <= (
+        SELECT 
+            PERCENTILE_CONT(COBERTURA_DIAS, 0.5) OVER() AS COBERTURA_MEDIA_MENSAL
+        FROM 
+            `varejo.estoque`
+        WHERE 
+            MES = (SELECT MAX(MES) FROM `varejo.estoque`)
+        LIMIT 1
+    )
+ORDER BY CLIENTE_DESCRICAO;
