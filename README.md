@@ -1,3 +1,12 @@
+**PROJETO COMPLETO DE ETL COM CONSULTAS SQL**
+
+**OBJETIVO:** Criar um ETL automatizado para tratamento de dados, consolidação, criação de arquivos em Excel e tabelas no BigQuery. Além disso, respondemos algumas perguntas de negócio utilizando SQL a fim de obter insights que ajudem o gestor a tomar decisões.
+
+> TO-DO: 
+> - Criação de Dashboard no `Looker Studio` conectado ao `BigQuery`;
+> - Apresentação em `.ppt` para trazer os *insights* e recomendações;
+> - Solução para uma problema: Gestão de Crise.
+
 ## **ETAPA 01**
 
 ### **1.1. ETL**
@@ -64,7 +73,7 @@
 - App em Streamlit que recebe a base com $03$ planilhas, limpa, unifica, valida e envia pro diretório;
 - App em Streamlit para cadastro dos dados para garantir recebimento correto dos dados enviados por outra área.
 
----
+====================================================
 
 ## **ETAPA 02**
 
@@ -88,8 +97,3 @@
 - **QUESTÃO 02.** No mês mais recente, qual é a categoria de produto com a maior cobertura média de estoque?
 - **QUESTÃO 03.** Qual foi o mês com o maior volume total de vendas (VLR_VOLUME_REAL)?
 - **QUESTÃO 04.** Levante uma lista de clientes que, no último mês disponível na base, tiveram uma taxa de ruptura (Ruptura_%) e uma cobertura de estoque em um nível que pode representar um risco para o negócio. (fique livre para determinar os níveis de risco).
-
-### **2.3. TO-DO**
-- Criação de Dashboard no `Looker Studio` conectado ao `BigQuery`;
-- Apresentação em `.ppt` para trazer os *insights* e recomendações;
-- Solução para uma problema: Gestão de Crise.
