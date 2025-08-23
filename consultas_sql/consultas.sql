@@ -69,11 +69,8 @@ tiveram uma taxa de ruptura (Ruptura_%) e uma cobertura de estoque em um nível 
 pode representar um risco para o negócio. (fique livre para determinar os níveis de risco) */
 /*  --------- */
 --JUSTIFICATIVA:
--- i. Ruptura escolhida: risco se maior do que 10%. O critério foi escolhido com fundamentação teórica. 
--- Veja dissertação de Mestrado "A REAÇÃO DO CONSUMIDOR FRENTE À RUPTURA NO VAREJO": 
--- https://repositorio.fgv.br/server/api/core/bitstreams/be9ca766-e095-46af-98e1-3a8ea96b3d31/content;
--- ii. Cobertura Média em Risco: menor do que 15 dias. Fiz essa escolha supondo que os produtos são abastecidos 
--- a cada duas semanas.
+-- Inicialmente iriamos utilizar Ruptura_% > 10% como critério de risco, baseado em fundamentação teórica. Veja dissertação de Mestrado "A REAÇÃO DO CONSUMIDOR FRENTE À RUPTURA NO VAREJO": https://repositorio.fgv.br/server/api/core/bitstreams/be9ca766-e095-46af-98e1-3a8ea96b3d31/content;
+-- Depois de analisar os dados e verificar os quartis da Ruptura (%) e Cobertura (Dias) por categoria, cliente e geral, optamos por usar a mediana como critério.
 
 /* SOLUÇÃO 01 - USANDO CTEs E SUBQUERIES */
 WITH ruptura_mediana_por_cliente AS (
