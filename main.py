@@ -1,7 +1,7 @@
 # Arquivo principal 
 # Elaborado por: Jéssica Barros
 # Data: outubro de 2025
-# Descrição: Etapa 01 do Case Técnico do Processo Seletivo para Analista de Dados III do Grupo Boticário
+# Descrição: Pipeline completo (Extraction, Transformation/Validate, Load)
 
 # ============================================================
 
