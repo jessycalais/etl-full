@@ -35,36 +35,36 @@
 ├── poetry.lock  
 ├── pyproject.toml  
 ├── app  
-│ -- ├── utils  
-│ -- │ -- ├── __init__.py  
-│ -- │ -- └── log.py  
-│ -- ├── Extract  
-│ -- │ -- ├── __init__.py  
-│ -- │ -- └── extract.py  
-│ -- ├── Transform  
-│ -- │ -- ├── __init__.py  
-│ -- │ -- ├── transform.py  
-│ -- │ -- ├── merge.py  
-│ -- │ -- └── validate.py  
-│ -- └── Load  
-│ --     ├── __init__.py  
-│ --     ├── to_bigquery.py  
-│ --     ├── to_csv.py  
-│ --     ├── to_directory.py  
-│ --     └── to_xlsx.py  
+│ ── ├── utils  
+│ ── │ ── ├── __init__.py  
+│ ── │ ── └── log.py  
+│ ── ├── Extract  
+│ ── │ ── ├── __init__.py  
+│ ── │ ── └── extract.py  
+│ ── ├── Transform  
+│ ── │ ── ├── __init__.py  
+│ ── │ ── ├── transform.py  
+│ ── │ ── ├── merge.py  
+│ ── │ ── └── validate.py  
+│ ── └── Load  
+│ ──     ├── __init__.py  
+│ ──     ├── to_bigquery.py  
+│ ──     ├── to_csv.py  
+│ ──     ├── to_directory.py  
+│ ──     └── to_xlsx.py  
 ├── data  
-│ -- ├── raw/                 # arquivos brutos originais  
-│ -- └── processed/           # arquivos após processamento  
+│ ── ├── raw/                 # arquivos brutos originais  
+│ ── └── processed/           # arquivos após processamento  
 ├── logs/                     # arquivos de log gerados  
 └── consultas_sql  
-   -- └── consultas_sql.sql   # arquivo com queries SQL
+   ── └── consultas_sql.sql   # arquivo com queries SQL
 
 #### **1.4. TO-DO**
 - Escrever `docstring` e criar documentação com `mkdocs`;
 - App em Streamlit que recebe a base com $03$ planilhas, limpa, unifica, valida e envia pro diretório;
 - App em Streamlit para cadastro dos dados para garantir recebimento correto dos dados enviados por outra área.
 
----
+──-
 
 ## **ETAPA 02**
 
