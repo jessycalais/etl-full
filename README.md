@@ -36,27 +36,28 @@
 ├── pyproject.toml  
 ├── app  
 │   ├── utils  
+│   │   ├── __init__.py  
 │   │   └── log.py  
-│   │   └── __init__.py      
-│   ├── Extract/        
-│   │   └── __init__.py   
-│   │   └── extract.py   
-│   ├── Transform/   
-│   │   └── __init__.py  
-│   │   └── transform.py  
-│   │   └── merge.py  
+│   ├── Extract  
+│   │   ├── __init__.py  
+│   │   └── extract.py  
+│   ├── Transform  
+│   │   ├── __init__.py  
+│   │   ├── transform.py  
+│   │   ├── merge.py  
 │   │   └── validate.py  
-│   ├── Load/             
-│   │   └── __init__.py  
-│   │   └── to_bigquery.py  
-│   │   └── to_csv.py  
-│   │   └── to_directory.py  
-│   │   └── to_xlsx.py  
-├── data
-│   ├── raw/                 # arquivos brutos originais
-│   └── processed/           # arquivos após processamento
-└── logs/                    # arquivos de log gerados durante a execução
-
+│   └── Load  
+│       ├── __init__.py  
+│       ├── to_bigquery.py  
+│       ├── to_csv.py  
+│       ├── to_directory.py  
+│       └── to_xlsx.py  
+├── data  
+│   ├── raw/                 # arquivos brutos originais  
+│   └── processed/           # arquivos após processamento  
+├── logs/                    # arquivos de log gerados  
+└── consultas_sql  
+    └── consultas_sql.sql    # arquivo com queries SQL
 
 #### **1.4. TO-DO**
 - Escrever `docstring` e criar documentação com `mkdocs`;
