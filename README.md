@@ -12,10 +12,12 @@
 ### **1.1. ETL**
 **1.1.1. EXTRACTION:**
 - Carregar as bases: $03$ planilhas (abas) de um arquivo Excel. 
+
 **1.1. 2. TRANSFORMATION:**
 - Limpar dados (colunas, tipos, missing, etc);
 - Fazer `join`para gerar consolidado e salvar em .csv;
 - Validar com a lib `Pandera` (criação de schemas e função de validação).
+
 **1.1.3. LOAD:**
 - Ingestão no BigQuery das $04$ tabelas ($03$ planilhas + 1 tabela unificada):
     - Tabela 1: Ruptura;
@@ -77,7 +79,7 @@
 
 ## **ETAPA 02**
 
-### **2.1 CONSULTAS SQL PARA ANÁLISE DE VENDAS, ESTOQUE E RUPTURA**  
+### **2.1. CONSULTAS SQL PARA ANÁLISE DE VENDAS, ESTOQUE E RUPTURA**  
 
 **2.1.1. Conceitos utilizados**
 - Utilizamos a ferramenta `Google BigQuery` para realizar as consultas SQL nas tabelas carregadas na etapa anterior.;
@@ -94,6 +96,9 @@
 
 **2.2.2 Perguntas respondidas**
 - **QUESTÃO 01.** Quais são os 5 clientes com maior valor total de ruptura (Valor Ruptura_$) no período analisado?
+
 - **QUESTÃO 02.** No mês mais recente, qual é a categoria de produto com a maior cobertura média de estoque?
+
 - **QUESTÃO 03.** Qual foi o mês com o maior volume total de vendas (VLR_VOLUME_REAL)?
+
 - **QUESTÃO 04.** Levante uma lista de clientes que, no último mês disponível na base, tiveram uma taxa de ruptura (Ruptura_%) e uma cobertura de estoque em um nível que pode representar um risco para o negócio. (fique livre para determinar os níveis de risco).
