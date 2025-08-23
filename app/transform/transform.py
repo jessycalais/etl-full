@@ -14,8 +14,6 @@ def _separar_ano_mes(df: pd.DataFrame, coluna_data: str, num_digitos: int) -> pd
     df[coluna_data] = df[coluna_data].astype(str).str.zfill(num_digitos)
     df['ANO'] = df[coluna_data].str[:4].astype('Int64')
     df['MES'] = df[coluna_data].str[4:].astype('Int64')
-    # df['ANO'] = df['ANO'].astype('Int64')
-    # df['MES'] = df['MES'].astype('Int64')
     df.drop(columns=coluna_data, inplace=True)
     df.insert(0, 'ANO', df.pop('ANO'))
     df.insert(1, 'MES', df.pop('MES'))
@@ -24,8 +22,6 @@ def _separar_ano_mes(df: pd.DataFrame, coluna_data: str, num_digitos: int) -> pd
 
 
 def _coletar_mes(df: pd.DataFrame, coluna_mes: str, num_digitos: int) -> pd.DataFrame:
-    # df[coluna_mes].astype(str).str.zfill(num_digitos)
-    # df[coluna_mes]=df[coluna_mes].str[1:]   
     df[coluna_mes] = df[coluna_mes].str.replace('M', '', regex=False).astype('Int64')
 
     return df
