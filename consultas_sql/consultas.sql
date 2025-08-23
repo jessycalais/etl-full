@@ -75,7 +75,7 @@ pode representar um risco para o negócio. (fique livre para determinar os níve
 -- ii. Cobertura Média em Risco: menor do que 15 dias. Fiz essa escolha supondo que os produtos são abastecidos 
 -- a cada duas semanas.
 
-
+/* SOLUÇÃO 01 - USANDO CTEs E SUBQUERIES */
 WITH ruptura_mediana_por_cliente AS (
     SELECT DISTINCT
         CLIENTE_DESCRICAO,
@@ -120,5 +120,97 @@ WHERE
         WHERE 
             MES = (SELECT MAX(MES) FROM `varejo.estoque`)
         LIMIT 1
+    )
+ORDER BY CLIENTE_DESCRICAO;
+
+/* SOLUÇÃO 02 - USANDO VIEWS */
+-- VIEW 1
+CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_por_categoria` AS
+  SELECT DISTINCT
+    CLIENTE_DESCRICAO,
+    COD_CLIENTE,
+    PERCENTILE_CONT(RUPTURA_PERCENTUAL, 0.5) OVER(PARTITION BY CLIENTE_DESCRICAO,COD_CLIENTE) AS RUPTURA_MEDIANA_POR_CATEGORIA
+  FROM
+      `casegb-469522.varejo.ruptura_faltaproduto`
+  WHERE
+    MES = (
+            SELECT
+            MAX(MES) AS MAIOR_MES
+            FROM
+              `casegb-469522.varejo.ruptura_faltaproduto`
+          )
+  ORDER BY
+    CLIENTE_DESCRICAO DESC,
+    COD_CLIENTE DESC;
+
+-- VIEW 2
+CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_por_cliente` AS
+  SELECT DISTINCT
+    CLIENTE_DESCRICAO,
+    PERCENTILE_CONT(RUPTURA_MEDIANA_POR_CATEGORIA, 0.5) OVER(PARTITION BY CLIENTE_DESCRICAO) AS RUPTURA_MEDIANA_POR_CLIENTE
+  FROM
+    `varejo.ruptura_mediana_por_categoria`;
+
+-- VIEW 3
+CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_geral` AS
+  SELECT
+    PERCENTILE_CONT(RUPTURA_MEDIANA_POR_CLIENTE, 0.5) OVER() AS RUPTURA_MEDIANA_GERAL
+  FROM
+    `varejo.ruptura_mediana_por_cliente`
+  LIMIT 1;
+
+-- VIEW 4
+CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_por_categoria` AS
+  SELECT DISTINCT
+    NOME_CLIENTE,
+    COD_CLIENTE,
+    PERCENTILE_CONT(COBERTURA_DIAS, 0.5) OVER(PARTITION BY NOME_CLIENTE,COD_CLIENTE) AS COBERTURA_MEDIANA_POR_CATEGORIA
+  FROM
+      `casegb-469522.varejo.estoque`
+  WHERE
+    MES = (
+            SELECT
+            MAX(MES) AS MAIOR_MES
+            FROM
+              `casegb-469522.varejo.estoque`
+          )
+  ORDER BY
+    NOME_CLIENTE DESC,
+    COD_CLIENTE DESC;
+
+-- VIEW 5
+CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_por_cliente` AS
+  SELECT DISTINCT
+    NOME_CLIENTE,
+    PERCENTILE_CONT(COBERTURA_MEDIANA_POR_CATEGORIA, 0.5) OVER(PARTITION BY NOME_CLIENTE) AS COBERTURA_MEDIANA_POR_CLIENTE
+  FROM
+    `varejo.cobertura_mediana_por_categoria`;
+
+-- VIEW 6
+CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_geral` AS
+  SELECT
+    PERCENTILE_CONT(COBERTURA_MEDIANA_POR_CLIENTE, 0.5) OVER() AS COBERTURA_MEDIANA_GERAL
+  FROM
+    `varejo.cobertura_mediana_por_cliente`
+  LIMIT 1;
+
+/* ================================================================ */
+
+-- CONSULTA FINAL USANDO AS VIEWS CRIADAS
+SELECT
+    r.CLIENTE_DESCRICAO,
+    r.RUPTURA_MEDIANA_POR_CLIENTE,
+    c.COBERTURA_MEDIANA_POR_CLIENTE      
+FROM `casegb-469522.varejo.ruptura_mediana_por_cliente` r
+    JOIN `casegb-469522.varejo.cobertura_mediana_por_cliente` c
+    ON r.CLIENTE_DESCRICAO = c.NOME_CLIENTE
+WHERE
+    r.RUPTURA_MEDIANA_POR_CLIENTE >= (
+        SELECT RUPTURA_MEDIANA_GERAL
+        FROM `casegb-469522.varejo.ruptura_mediana_geral`
+    )
+    AND c.COBERTURA_MEDIANA_POR_CLIENTE <= (
+        SELECT COBERTURA_MEDIANA_GERAL
+        FROM `casegb-469522.varejo.cobertura_mediana_geral`
     )
 ORDER BY CLIENTE_DESCRICAO;
