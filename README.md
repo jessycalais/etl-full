@@ -1,6 +1,6 @@
 ## **ETAPA 01**
 
-#### **1.1. ETL**
+### **1.1. ETL**
 **1.1.1. EXTRACTION:**
 - Carregar as bases: $03$ planilhas (abas) de um arquivo Excel. 
 **1.1. 2. TRANSFORMATION:**
@@ -18,7 +18,7 @@
 - Salvar o arquivo unificado no formato `.csv`;
 - Salvar as planilhas originais tratadas em arquivos individuais e no formato `.xlsx` (pois o original é `.xlsx`).
 
-#### **1.2. Boas práticas**  
+### **1.2. Boas práticas**  
 - Type notation;  
 - Ambiente Virtual com Poetry;  
 - Git e GitHub;  
@@ -28,7 +28,7 @@
 - Estrutura de pastas organizada por funcionalidade (Extract, Transform, Load, Utils);
 - Pipeline orquetrado com funções no `main.py`.
 
-#### **1.3. Estrutura do Projeto**
+### **1.3. Estrutura do Projeto**
 ├── .gitignore  
 ├── README.md  
 ├── main.py  
@@ -36,16 +36,16 @@
 ├── pyproject.toml  
 ├── app  
 │    ├── utils  
-│    │ ── ├── __init__.py  
-│    │ ── └── log.py  
+│    │  ├── __init__.py  
+│    │  └── log.py  
 │    ├── Extract  
-│    │ ── ├── __init__.py  
-│    │ ── └── extract.py  
+│    │  ├── __init__.py  
+│    │  └── extract.py  
 │    ├── Transform  
-│    │ ── ├── __init__.py  
-│    │ ── ├── transform.py  
-│    │ ── ├── merge.py  
-│    │ ── └── validate.py  
+│    │  ├── __init__.py  
+│    │  ├── transform.py  
+│    │  ├── merge.py  
+│    │  └── validate.py  
 │    └── Load  
 │        ├── __init__.py  
 │        ├── to_bigquery.py  
@@ -59,16 +59,16 @@
 └── consultas_sql  
      └── consultas_sql.sql   # arquivo com queries SQL
 
-#### **1.4. TO-DO**
+### **1.4. TO-DO**
 - Escrever `docstring` e criar documentação com `mkdocs`;
 - App em Streamlit que recebe a base com $03$ planilhas, limpa, unifica, valida e envia pro diretório;
 - App em Streamlit para cadastro dos dados para garantir recebimento correto dos dados enviados por outra área.
 
-──-
+---
 
 ## **ETAPA 02**
 
-#### **2.1 CONSULTAS SQL PARA ANÁLISE DE VENDAS, ESTOQUE E RUPTURA**  
+### **2.1 CONSULTAS SQL PARA ANÁLISE DE VENDAS, ESTOQUE E RUPTURA**  
 
 **2.1.1. Conceitos utilizados**
 - Utilizamos a ferramenta `Google BigQuery` para realizar as consultas SQL nas tabelas carregadas na etapa anterior.;
@@ -88,3 +88,8 @@
 - **QUESTÃO 02.** No mês mais recente, qual é a categoria de produto com a maior cobertura média de estoque?
 - **QUESTÃO 03.** Qual foi o mês com o maior volume total de vendas (VLR_VOLUME_REAL)?
 - **QUESTÃO 04.** Levante uma lista de clientes que, no último mês disponível na base, tiveram uma taxa de ruptura (Ruptura_%) e uma cobertura de estoque em um nível que pode representar um risco para o negócio. (fique livre para determinar os níveis de risco).
+
+### **2.3. TO-DO**
+- Criação de Dashboard no `Looker Studio` conectado ao `BigQuery`;
+- Apresentação em `.ppt` para trazer os *insights* e recomendações;
+- Solução para uma problema: Gestão de Crise.
