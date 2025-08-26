@@ -3,15 +3,16 @@ from pathlib import Path
 
 # Imports de pacotes built-in
 import pandas as pd
+import streamlit as st
 
 # Imports de pacotes pessoais
-from app.utils.log import (
+from src.utils.log import (
     logger, 
     log
 )
 
 @log
-def ler_planilha(endereco: Path, aba: str) -> pd.DataFrame:
+def ler_planilha(endereco, aba: str) -> pd.DataFrame:
     try:
         planilha = pd.read_excel(endereco, sheet_name=aba) 
         logger.info(f'Planilha "{aba}" lida com sucesso.')

@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Imports de pacotes pessoais
-from app.utils.log import (
+from src.utils.log import (
     logger, 
     log
 )

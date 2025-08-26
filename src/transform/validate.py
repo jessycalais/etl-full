@@ -11,7 +11,7 @@ from pandera.pandas import (
 )
 
 # Imports de pacotes pessoais
-from app.utils.log import (
+from src.utils.log import (
     logger, 
     log
 )

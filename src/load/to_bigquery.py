@@ -6,7 +6,7 @@ from google.cloud import bigquery
 import pandas as pd
 
 # Imports de pacotes pessoais
-from app.utils.log import (
+from src.utils.log import (
     logger, 
     log
 )
@@ -31,7 +31,7 @@ def _criar_dataset(cliente, id_dataset) -> None:
         logger.error(f'Erro ao criar dataset: {erro}')
 
 @log
-def enviar_tabela_bq(df: pd.DataFrame, tabela: str, id_dataset: str='casegb-469522.varejo'):
+def enviar_tabela_bq(df: pd.DataFrame, tabela: str, id_dataset: str='poetic-standard-439816-e6.varejo'):
     cliente = _criar_conexao_bq()
     if cliente is None:
         logger.error('Não foi possível criar a conexão com o BigQuery.')
@@ -44,7 +44,7 @@ def enviar_tabela_bq(df: pd.DataFrame, tabela: str, id_dataset: str='casegb-4695
         job_config = bigquery.LoadJobConfig(
             write_disposition='WRITE_TRUNCATE',  # Cria a tabela ou substitui se já existir
         )
-        id_tabela = f'casegb-469522.varejo.{tabela}'
+        id_tabela = f'poetic-standard-439816-e6.varejo.{tabela}'
         job = cliente.load_table_from_dataframe(df, id_tabela, job_config=job_config)
         job.result()  
         print('==================================')
