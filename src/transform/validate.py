@@ -1,8 +1,6 @@
-# Imports de pacotes built-in
-from pathlib import Path
-
 # Imports de pacotes de terceiros
 import pandas as pd
+import streamlit as st
 from pandera.pandas import (
     Column, 
     DataFrameSchema, 
@@ -144,12 +142,18 @@ def validar_df(df: pd.DataFrame, schema, log) -> pd.DataFrame | None:
         logger.info(f'DataFrame validado com sucesso: {log}!')
         return validate_df    
     except errors.SchemaErrors as erro:
-        print('==================================')
-        print(f'Erros encontrados na validação do DataFrame: {log}!')
         logger.error(f'Erros encontrados na validação do DataFrame: {log}!')
-        PASTA_RAIZ = Path(__file__).resolve().parents[2]
         NOME_ARQUIVO = f'erros_validacao_{log}.csv'
-        ENDERECO = PASTA_RAIZ / 'logs' / NOME_ARQUIVO
-        erro.failure_cases.to_csv(ENDERECO, index=False)
-        print(f'Log de erros de validação do DataFrame salvo em: {ENDERECO}.')
+    
+        # Gerar csv com os erros
+        erros_df = erro.failure_cases
+        csv_bytes = erros_df.to_csv(index=False).encode('utf-8')
+        
+        st.download_button(
+            label=f'Baixar erros de validação ({log})',
+            data=csv_bytes,
+            file_name=NOME_ARQUIVO,
+            mime='text/csv'
+        )
+        
         raise RuntimeError(f'Erros encontrados na validação do DataFrame: {log}!')

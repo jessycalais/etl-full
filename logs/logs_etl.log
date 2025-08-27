@@ -82,3 +82,126 @@
 2025-08-27 20:20:50,137 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
 2025-08-27 20:20:53,508 - INFO - Arquivo consolidado gerado com sucesso!
 2025-08-27 20:20:53,577 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:33:24,131 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:33:24,298 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:33:24,359 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:33:24,463 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:33:24,485 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:33:24,499 - INFO - DataFrame validado com sucesso: vendas!
+2025-08-27 20:33:24,514 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:33:24,518 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:33:24,529 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:33:26,152 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:33:29,377 - INFO - Tabela "poetic-standard-439816-e6.varejo.ruptura_faltaproduto" criada e dados enviados com sucesso!
+2025-08-27 20:33:29,384 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:33:30,751 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:33:34,419 - INFO - Tabela "poetic-standard-439816-e6.varejo.estoque" criada e dados enviados com sucesso!
+2025-08-27 20:33:34,425 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:33:35,747 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:33:39,004 - INFO - Tabela "poetic-standard-439816-e6.varejo.vendas" criada e dados enviados com sucesso!
+2025-08-27 20:33:39,010 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:33:40,346 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:33:43,067 - INFO - Tabela "poetic-standard-439816-e6.varejo.consolidado" criada e dados enviados com sucesso!
+2025-08-27 20:33:43,089 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:33:43,137 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:33:46,789 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:33:46,899 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:35:40,673 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:35:41,180 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:35:41,361 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:35:41,637 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:35:41,740 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:35:41,819 - INFO - DataFrame validado com sucesso: vendas!
+2025-08-27 20:35:41,862 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:35:41,882 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:35:41,922 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:35:45,555 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:35:49,182 - INFO - Tabela "poetic-standard-439816-e6.varejo.ruptura_faltaproduto" criada e dados enviados com sucesso!
+2025-08-27 20:35:49,186 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:35:52,845 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:35:55,587 - INFO - Tabela "poetic-standard-439816-e6.varejo.estoque" criada e dados enviados com sucesso!
+2025-08-27 20:35:55,591 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:35:58,378 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:36:01,763 - INFO - Tabela "poetic-standard-439816-e6.varejo.vendas" criada e dados enviados com sucesso!
+2025-08-27 20:36:01,766 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:36:04,044 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:37:00,110 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:37:00,323 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:37:00,367 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:37:00,444 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:37:00,480 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:37:00,506 - INFO - DataFrame validado com sucesso: vendas!
+2025-08-27 20:37:00,516 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:37:00,524 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:37:00,544 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:37:02,250 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:37:05,791 - INFO - Tabela "poetic-standard-439816-e6.varejo.ruptura_faltaproduto" criada e dados enviados com sucesso!
+2025-08-27 20:37:05,793 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:37:07,246 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:37:09,759 - INFO - Tabela "poetic-standard-439816-e6.varejo.estoque" criada e dados enviados com sucesso!
+2025-08-27 20:37:09,761 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:37:11,244 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:37:13,796 - INFO - Tabela "poetic-standard-439816-e6.varejo.vendas" criada e dados enviados com sucesso!
+2025-08-27 20:37:13,798 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:37:15,242 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:37:18,415 - INFO - Tabela "poetic-standard-439816-e6.varejo.consolidado" criada e dados enviados com sucesso!
+2025-08-27 20:37:18,444 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:37:18,520 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:37:21,063 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:37:21,129 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:37:25,720 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:37:25,801 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:43:37,242 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:43:37,342 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:43:37,395 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:43:37,474 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:43:37,498 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:43:37,509 - INFO - DataFrame validado com sucesso: vendas!
+2025-08-27 20:43:37,516 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:43:37,520 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:43:37,528 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:43:39,149 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:43:42,444 - INFO - Tabela "poetic-standard-439816-e6.varejo.ruptura_faltaproduto" criada e dados enviados com sucesso!
+2025-08-27 20:43:42,446 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:43:43,854 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:43:47,066 - INFO - Tabela "poetic-standard-439816-e6.varejo.estoque" criada e dados enviados com sucesso!
+2025-08-27 20:43:47,068 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:43:48,448 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:43:50,990 - INFO - Tabela "poetic-standard-439816-e6.varejo.vendas" criada e dados enviados com sucesso!
+2025-08-27 20:43:50,996 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:43:52,438 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:43:55,176 - INFO - Tabela "poetic-standard-439816-e6.varejo.consolidado" criada e dados enviados com sucesso!
+2025-08-27 20:43:55,208 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:43:55,273 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:44:40,548 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:44:40,601 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:45:10,116 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:45:10,283 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:45:10,331 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:45:10,423 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:45:10,470 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:45:10,511 - ERROR - Erros encontrados na validação do DataFrame: vendas!
+2025-08-27 20:46:17,355 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:46:17,523 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:46:17,577 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:46:17,621 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:46:17,649 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:46:17,680 - ERROR - Erros encontrados na validação do DataFrame: vendas!
+2025-08-27 20:47:55,917 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:47:56,089 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:47:56,133 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:47:56,198 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:47:56,239 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:47:56,286 - ERROR - Erros encontrados na validação do DataFrame: vendas!
+2025-08-27 20:48:23,033 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:48:23,168 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:48:23,206 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:48:23,239 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:48:23,258 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:48:23,278 - ERROR - Erros encontrados na validação do DataFrame: vendas!
+2025-08-27 20:48:49,256 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:48:49,397 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:48:49,444 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:48:49,506 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:48:49,529 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:48:49,553 - ERROR - Erros encontrados na validação do DataFrame: vendas!

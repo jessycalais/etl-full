@@ -4,6 +4,9 @@
 # Descrição: Aplicação do Pipeline, Tela do Streamlit e Botões de Download
 
 # ============================================================
+# Imports de pacotes built-in
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning)
 
 # Imports de pacotes de terceiros
 import streamlit as st
