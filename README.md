@@ -1,4 +1,4 @@
-**🚀 PROJETO COMPLETO DE ETL COM CONSULTAS SQL**
+🚀 **PROJETO COMPLETO DE ETL COM CONSULTAS SQL**
 
 **OBJETIVO:** Criar um ETL automatizado para tratamento de dados, consolidação, criação de arquivos em Excel e tabelas no BigQuery. Além disso, respondemos algumas perguntas de negócio utilizando SQL a fim de obter insights que ajudem o gestor a tomar decisões.
 
