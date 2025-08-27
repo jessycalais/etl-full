@@ -6,10 +6,7 @@ from google.cloud import bigquery
 import pandas as pd
 
 # Imports de pacotes pessoais
-from src.utils.log import (
-    logger, 
-    log
-)
+from src.utils.log import logger
 
 # Ignorar warnings
 warnings.filterwarnings("ignore")
@@ -20,7 +17,7 @@ def _criar_conexao_bq() -> bigquery.Client | None:
     logger.info('Conexão com BigQuery criada com sucesso!')
     return cliente
 
-@log
+
 def _criar_dataset(cliente, id_dataset) -> None:
     try:
         dataset = bigquery.Dataset(id_dataset)
@@ -30,7 +27,7 @@ def _criar_dataset(cliente, id_dataset) -> None:
     except Exception as erro:
         logger.error(f'Erro ao criar dataset: {erro}')
 
-@log
+
 def enviar_tabela_bq(df: pd.DataFrame, tabela: str, id_dataset: str='poetic-standard-439816-e6.varejo'):
     cliente = _criar_conexao_bq()
     if cliente is None:
@@ -47,8 +44,6 @@ def enviar_tabela_bq(df: pd.DataFrame, tabela: str, id_dataset: str='poetic-stan
         id_tabela = f'poetic-standard-439816-e6.varejo.{tabela}'
         job = cliente.load_table_from_dataframe(df, id_tabela, job_config=job_config)
         job.result()  
-        print('==================================')
-        print(f'Tabela "{id_tabela}" criada e dados enviados com sucesso!')
         logger.info(f'Tabela "{id_tabela}" criada e dados enviados com sucesso!')
     except Exception as erro:
         logger.error(f'Erro ao enviar dados para o BigQuery: {erro}')

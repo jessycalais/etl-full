@@ -6,12 +6,8 @@ import pandas as pd
 import streamlit as st
 
 # Imports de pacotes pessoais
-from src.utils.log import (
-    logger, 
-    log
-)
+from src.utils.log import logger
 
-@log
 def ler_planilha(endereco, aba: str) -> pd.DataFrame:
     try:
         planilha = pd.read_excel(endereco, sheet_name=aba) 

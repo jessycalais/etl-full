@@ -1,4 +1,4 @@
-**PROJETO COMPLETO DE ETL COM CONSULTAS SQL**
+**🚀 PROJETO COMPLETO DE ETL COM CONSULTAS SQL**
 
 **OBJETIVO:** Criar um ETL automatizado para tratamento de dados, consolidação, criação de arquivos em Excel e tabelas no BigQuery. Além disso, respondemos algumas perguntas de negócio utilizando SQL a fim de obter insights que ajudem o gestor a tomar decisões.
 
@@ -25,9 +25,8 @@
     - Tabela 3: Vendas;
     - Tabela 4: Análise Consolidada (resultado do join).
     > Optamos pela `google-cloud-bigquery` porque é a lib oficial do Google, uma outra opção seria usar a lib `pandas-gbq`.
-- Automação do processo de divisão das tabelas por `COD_CLIENTE | CONTATO_CLIENTE` e salvar num diretorio.;
-- Salvar o arquivo unificado no formato `.csv`;
-- Salvar as planilhas originais tratadas em arquivos individuais e no formato `.xlsx` (pois o original é `.xlsx`).
+- Automação do processo de divisão das tabelas por `COD_CLIENTE | CONTATO_CLIENTE`;
+- Salvar o arquivo unificado no formato `.csv`.
 
 ### **1.2. Boas práticas**  
 - Type notation;  
@@ -36,8 +35,7 @@
 - Funções pequenas e objetivas;  
 - Validação com Pandera;  
 - Logs com a lib `logging`;
-- Estrutura de pastas organizada por funcionalidade (Extract, Transform, Load, Utils);
-- Pipeline orquetrado com funções no `main.py`.
+- Estrutura de pastas organizada por funcionalidade (Extract, Transform, Load, Utils).
 
 ### **1.3. Estrutura do Projeto**
 ├── .gitignore  
@@ -62,20 +60,18 @@
 │        ├── to_bigquery.py  
 │        ├── to_csv.py  
 │        ├── to_directory.py  
-│        └── to_xlsx.py  
 ├── data  
 │    ├── raw/                 # arquivos brutos originais  
 │    └── processed/           # arquivos após processamento  
 ├── logs/                     # arquivos de log gerados  
-└── consultas_sql  
-     └── consultas_sql.sql   # arquivo com queries SQL
+├── consultas_sql  
+│     ├── consultas_sql.sql   # arquivo com queries SQL
 
 ### **1.4. TO-DO**
 - Escrever `docstring` e criar documentação com `mkdocs`;
-- App em Streamlit que recebe a base com $03$ planilhas, limpa, unifica, valida e envia pro diretório;
 - App em Streamlit para cadastro dos dados para garantir recebimento correto dos dados enviados por outra área.
 
-====================================================
+======================
 
 ## **ETAPA 02**
 

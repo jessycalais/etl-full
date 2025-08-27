@@ -6,7 +6,7 @@ SELECT
     CLIENTE_DESCRICAO AS NOME_CLIENTE,
     ROUND(SUM(VALOR_RUPTURA_MONETARIO), 4) AS TOTAL_RUPTURA
 FROM 
-    `casegb-469522.varejo.ruptura_faltaproduto`
+    `poetic-standard-439816-e6.varejo.ruptura_faltaproduto`
 GROUP BY
     CLIENTE_DESCRICAO
 ORDER BY 
@@ -21,7 +21,7 @@ SELECT
     DESCRICAO_CATEGORIA,
     ROUND(AVG(COBERTURA_DIAS), 4) AS MEDIA_COBERTURA
 FROM 
-    `casegb-469522.varejo.estoque`
+    `poetic-standard-439816-e6.varejo.estoque`
 -- Filtrar assim para garantir que o maior mês será usado, sem a necessidade de dizer que é o mês de julho
 WHERE
 -- Usar CAST(MES AS INT64) apenas se mês for do tipo texto. Ajustei tipo na "Transformação" no ETL
@@ -29,7 +29,7 @@ WHERE
         SELECT
             MAX(MES) AS MES_MAIS_RECENTE
         FROM
-            `casegb-469522.varejo.estoque`
+            `poetic-standard-439816-e6.varejo.estoque`
     )
 GROUP BY
     DESCRICAO_CATEGORIA
@@ -56,7 +56,7 @@ SELECT
     END MES,
     SUM(VLR_VOLUME_REAL) AS VOLUME_TOTAL
 FROM 
-    `casegb-469522.varejo.vendas`
+    `poetic-standard-439816-e6.varejo.vendas`
 GROUP BY
     MES
 ORDER BY
@@ -122,26 +122,26 @@ ORDER BY CLIENTE_DESCRICAO;
 
 /* SOLUÇÃO 02 - USANDO VIEWS */
 -- VIEW 1
-CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_por_categoria` AS
+CREATE OR REPLACE VIEW `poetic-standard-439816-e6.varejo.ruptura_mediana_por_categoria` AS
   SELECT DISTINCT
     CLIENTE_DESCRICAO,
     COD_CLIENTE,
     PERCENTILE_CONT(RUPTURA_PERCENTUAL, 0.5) OVER(PARTITION BY CLIENTE_DESCRICAO,COD_CLIENTE) AS RUPTURA_MEDIANA_POR_CATEGORIA
   FROM
-      `casegb-469522.varejo.ruptura_faltaproduto`
+      `poetic-standard-439816-e6.varejo.ruptura_faltaproduto`
   WHERE
     MES = (
             SELECT
             MAX(MES) AS MAIOR_MES
             FROM
-              `casegb-469522.varejo.ruptura_faltaproduto`
+              `poetic-standard-439816-e6.varejo.ruptura_faltaproduto`
           )
   ORDER BY
     CLIENTE_DESCRICAO DESC,
     COD_CLIENTE DESC;
 
 -- VIEW 2
-CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_por_cliente` AS
+CREATE OR REPLACE VIEW `poetic-standard-439816-e6.varejo.ruptura_mediana_por_cliente` AS
   SELECT DISTINCT
     CLIENTE_DESCRICAO,
     PERCENTILE_CONT(RUPTURA_MEDIANA_POR_CATEGORIA, 0.5) OVER(PARTITION BY CLIENTE_DESCRICAO) AS RUPTURA_MEDIANA_POR_CLIENTE
@@ -149,7 +149,7 @@ CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_por_cliente` AS
     `varejo.ruptura_mediana_por_categoria`;
 
 -- VIEW 3
-CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_geral` AS
+CREATE OR REPLACE VIEW `poetic-standard-439816-e6.varejo.ruptura_mediana_geral` AS
   SELECT
     PERCENTILE_CONT(RUPTURA_MEDIANA_POR_CLIENTE, 0.5) OVER() AS RUPTURA_MEDIANA_GERAL
   FROM
@@ -157,26 +157,26 @@ CREATE OR REPLACE VIEW `casegb-469522.varejo.ruptura_mediana_geral` AS
   LIMIT 1;
 
 -- VIEW 4
-CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_por_categoria` AS
+CREATE OR REPLACE VIEW `poetic-standard-439816-e6.varejo.cobertura_mediana_por_categoria` AS
   SELECT DISTINCT
     NOME_CLIENTE,
     COD_CLIENTE,
     PERCENTILE_CONT(COBERTURA_DIAS, 0.5) OVER(PARTITION BY NOME_CLIENTE,COD_CLIENTE) AS COBERTURA_MEDIANA_POR_CATEGORIA
   FROM
-      `casegb-469522.varejo.estoque`
+      `poetic-standard-439816-e6.varejo.estoque`
   WHERE
     MES = (
             SELECT
             MAX(MES) AS MAIOR_MES
             FROM
-              `casegb-469522.varejo.estoque`
+              `poetic-standard-439816-e6.varejo.estoque`
           )
   ORDER BY
     NOME_CLIENTE DESC,
     COD_CLIENTE DESC;
 
 -- VIEW 5
-CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_por_cliente` AS
+CREATE OR REPLACE VIEW `poetic-standard-439816-e6.varejo.cobertura_mediana_por_cliente` AS
   SELECT DISTINCT
     NOME_CLIENTE,
     PERCENTILE_CONT(COBERTURA_MEDIANA_POR_CATEGORIA, 0.5) OVER(PARTITION BY NOME_CLIENTE) AS COBERTURA_MEDIANA_POR_CLIENTE
@@ -184,7 +184,7 @@ CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_por_cliente` AS
     `varejo.cobertura_mediana_por_categoria`;
 
 -- VIEW 6
-CREATE OR REPLACE VIEW `casegb-469522.varejo.cobertura_mediana_geral` AS
+CREATE OR REPLACE VIEW `poetic-standard-439816-e6.varejo.cobertura_mediana_geral` AS
   SELECT
     PERCENTILE_CONT(COBERTURA_MEDIANA_POR_CLIENTE, 0.5) OVER() AS COBERTURA_MEDIANA_GERAL
   FROM
@@ -198,16 +198,16 @@ SELECT
     r.CLIENTE_DESCRICAO,
     r.RUPTURA_MEDIANA_POR_CLIENTE,
     c.COBERTURA_MEDIANA_POR_CLIENTE      
-FROM `casegb-469522.varejo.ruptura_mediana_por_cliente` r
-    JOIN `casegb-469522.varejo.cobertura_mediana_por_cliente` c
+FROM `poetic-standard-439816-e6.varejo.ruptura_mediana_por_cliente` r
+    JOIN `poetic-standard-439816-e6.varejo.cobertura_mediana_por_cliente` c
     ON r.CLIENTE_DESCRICAO = c.NOME_CLIENTE
 WHERE
     r.RUPTURA_MEDIANA_POR_CLIENTE >= (
         SELECT RUPTURA_MEDIANA_GERAL
-        FROM `casegb-469522.varejo.ruptura_mediana_geral`
+        FROM `poetic-standard-439816-e6.varejo.ruptura_mediana_geral`
     )
     AND c.COBERTURA_MEDIANA_POR_CLIENTE <= (
         SELECT COBERTURA_MEDIANA_GERAL
-        FROM `casegb-469522.varejo.cobertura_mediana_geral`
+        FROM `poetic-standard-439816-e6.varejo.cobertura_mediana_geral`
     )
 ORDER BY CLIENTE_DESCRICAO;

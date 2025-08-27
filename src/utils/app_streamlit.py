@@ -1,7 +1,11 @@
+# Imports de pacotes de terceiros
 import streamlit as st
-from src.pipeline import pipeline
+
+# Imports de pacotes pessoais
+from src.utils.log import log
+
  
-def _carregar_dados():
+def carregar_dados():
     st.markdown(
         '''
         <p style="font-size:18px;">
@@ -13,7 +17,7 @@ def _carregar_dados():
 
         - Gera um arquivo consolidado (join): `analise_consolida.csv`;  
 
-        - Separa em arquivos por cliente/contato;  
+        - Separa em arquivos por cliente/contato;
 
         - Envia dados das $03$ tabelas lidas e da Análise Consolidada para o _BigQuery_.  
         </p>
@@ -27,18 +31,3 @@ def _carregar_dados():
     )
 
     return arquivo
-
-def aplicar_pipeline():
-       
-    arquivo = _carregar_dados()
-    if arquivo:
-        with st.spinner("Aplicando Pipeline ... Aguarde!"):  
-            try:          
-                pipeline(base=arquivo)
-            except:
-                st.error('Não foi possível realizar o Pipeline completo. Verifique o arquivo de _log_ para mais detalhes!')
-            else:
-                st.success('Arquivos enviados para o BigQuery com sucesso!')
-            
-
-           

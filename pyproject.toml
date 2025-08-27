@@ -16,7 +16,9 @@ dependencies = [
     "pyarrow (>=21.0.0,<22.0.0)",
     "google-auth (>=2.40.3,<3.0.0)",
     "streamlit (>=1.49.0,<2.0.0)",
-    "gspread (>=6.2.1,<7.0.0)"
+    "gspread (>=6.2.1,<7.0.0)",
+    "google-api-python-client (>=2.179.0,<3.0.0)",
+    "google-auth-httplib2 (>=0.2.0,<0.3.0)"
 ]
 
 

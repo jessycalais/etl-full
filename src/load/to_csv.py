@@ -1,24 +1,24 @@
-# Imports de pacotes built-in
-from pathlib import Path
-
 # Imports de pacotes de terceiros
+from io import BytesIO
 import pandas as pd
+import streamlit as st
 
 # Imports de pacotes pessoais
-from src.utils.log import (
-    logger, 
-    log
-)
+from src.utils.log import logger
 
-@log
+
 def exportar_csv_consolidado(df: pd.DataFrame, nome_arquivo: str) -> None:
     try:
-        PASTA_RAIZ = Path(__file__).resolve().parents[2]
-        NOME_ARQUIVO = f"{nome_arquivo}.csv"
-        ENDERECO = PASTA_RAIZ / 'data' / 'processed' / NOME_ARQUIVO
-        df.to_csv(ENDERECO, index=False, encoding='utf-8-sig') 
-        logger.info(f'Arquivo consolidado exportado com sucesso: {ENDERECO}')
-    except Exception as erro:
-        logger.error(f'Erro ao exportar arquivo consolidado: {erro}')
-        print(f'Erro ao exportar arquivo consolidado: {erro}')  
-        raise
+        NOME_ARQUIVO = f'{nome_arquivo}.csv'
+        buffer = BytesIO()
+        df.to_csv(buffer, index=False, encoding='utf-8-sig')
+        buffer.seek(0)
+        st.download_button(
+            label='Baixar _Análise Consolidada_',
+            data=buffer.getvalue(),
+            file_name=NOME_ARQUIVO,
+            mime="text/csv"
+        )
+        logger.info('Arquivo consolidado gerado com sucesso!')
+    except:
+        logger.error('Não foi possível gerar o arquivo consolidado!')

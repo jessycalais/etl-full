@@ -3,10 +3,7 @@ import numpy as np
 import pandas as pd
 
 # Imports de pacotes pessoais
-from src.utils.log import (
-    logger, 
-    log
-)
+from src.utils.log import logger
 
 # ----------------------------------------------------
 # GERAL
@@ -83,7 +80,6 @@ def _remover_hifen(df: pd.DataFrame, colunas: list) -> pd.DataFrame:
     return df
 
 
-@log
 def limpar_ruptura(df: pd.DataFrame) -> pd.DataFrame:
     df = (df.pipe(_separar_ano_mes, coluna_data='DT_MES', num_digitos=6)
         .pipe(_converter_valor_monetario, coluna='Valor Ruptura_$')
@@ -102,7 +98,6 @@ def limpar_ruptura(df: pd.DataFrame) -> pd.DataFrame:
 
 # ----------------------------------------------------
 # ESTOQUE
-@log
 def limpar_estoque(df: pd.DataFrame) -> pd.DataFrame:
     df = (df.pipe(_coletar_mes, coluna_mes='MES', num_digitos=3)
         .pipe(_renomear_colunas, colunas={
@@ -116,7 +111,6 @@ def limpar_estoque(df: pd.DataFrame) -> pd.DataFrame:
 
 # ----------------------------------------------------
 # VENDAS
-@log
 def limpar_vendas(df: pd.DataFrame) -> pd.DataFrame:
     df = (df.pipe(_separar_ano_mes, coluna_data='DT_MES', num_digitos=6)
         .pipe(_renomear_colunas, colunas={
@@ -156,7 +150,6 @@ def _definir_tipos_consolidado(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-@log
 def limpar_consolidado(df: pd.DataFrame) -> pd.DataFrame:
     # A função `_converter_letras_maiusculas` poderia ser usada aqui em todas as colunas do tipo texto
     df = (df.pipe(_remover_colunas, colunas=['ANO_y', 'NOME_CLIENTE', 'DESCRICAO_CATEGORIA'])

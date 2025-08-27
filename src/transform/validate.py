@@ -11,10 +11,7 @@ from pandera.pandas import (
 )
 
 # Imports de pacotes pessoais
-from src.utils.log import (
-    logger, 
-    log
-)
+from src.utils.log import logger
 
 # SCHEMAS DE VALIDAÇÃO
 schema_ruptura = DataFrameSchema({
@@ -141,7 +138,6 @@ schema_vendas = DataFrameSchema({
 
 
 # Função para validar DataFrame
-@log
 def validar_df(df: pd.DataFrame, schema, log) -> pd.DataFrame | None:
     try:
         validate_df = schema.validate(df, lazy=True)
