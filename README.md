@@ -25,8 +25,8 @@
     - Tabela 3: Vendas;
     - Tabela 4: Análise Consolidada (resultado do join).
     > Optamos pela `google-cloud-bigquery` porque é a lib oficial do Google, uma outra opção seria usar a lib `pandas-gbq`.
-- Automação do processo de divisão das tabelas por `COD_CLIENTE | CONTATO_CLIENTE`;
-- Salvar o arquivo unificado no formato `.csv`.
+- Automação do processo de divisão das tabelas por `COD_CLIENTE | CONTATO_CLIENTE` com opção de download;
+- Salvar o arquivo unificado no formato `.csv` com opção de download.
 
 ### **1.2. Boas práticas**  
 - Type notation;  
