@@ -69,7 +69,6 @@
 │     ├── consultas_sql.sql   # arquivo com queries SQL
 
 ### **1.4. TO-DO**
-- Escrever `docstring` e criar documentação com `mkdocs`;
 - App em Streamlit para cadastro dos dados para garantir recebimento correto dos dados enviados por outra área.
 
 ======================
@@ -91,7 +90,7 @@
     - `Subqueries` para consultas aninhadas;
     - Criação de `Views` para facilitar consultas futuras.
 
-**2.2.2 Perguntas respondidas**
+**2.1.2. Perguntas respondidas**
 - **QUESTÃO 01.** Quais são os 5 clientes com maior valor total de ruptura (Valor Ruptura_$) no período analisado?
 
 - **QUESTÃO 02.** No mês mais recente, qual é a categoria de produto com a maior cobertura média de estoque?
