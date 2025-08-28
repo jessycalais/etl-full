@@ -4,5 +4,6 @@ credentials.json
 app/extracts/__pycache__/
 app/transforms/__pycache__/
 app/load/__pycache__/
+app/utils/__pycache__/
 __pycache__/
 .streamlit
