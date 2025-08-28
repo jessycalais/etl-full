@@ -205,3 +205,29 @@
 2025-08-27 20:48:49,506 - INFO - DataFrame validado com sucesso: ruptura!
 2025-08-27 20:48:49,529 - INFO - DataFrame validado com sucesso: estoque!
 2025-08-27 20:48:49,553 - ERROR - Erros encontrados na validação do DataFrame: vendas!
+2025-08-27 20:56:36,618 - INFO - Planilha "01_BD_Ruptura_Faltaproduto" lida com sucesso.
+2025-08-27 20:56:36,771 - INFO - Planilha "02_BD_Estoque" lida com sucesso.
+2025-08-27 20:56:36,843 - INFO - Planilha "03_BD_Vendas" lida com sucesso.
+2025-08-27 20:56:36,950 - INFO - DataFrame validado com sucesso: ruptura!
+2025-08-27 20:56:36,979 - INFO - DataFrame validado com sucesso: estoque!
+2025-08-27 20:56:37,001 - INFO - DataFrame validado com sucesso: vendas!
+2025-08-27 20:56:37,028 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:56:37,036 - INFO - Planilhas combinadas (join) com sucesso!
+2025-08-27 20:56:37,054 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:56:38,641 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:56:42,060 - INFO - Tabela "poetic-standard-439816-e6.varejo.ruptura_faltaproduto" criada e dados enviados com sucesso!
+2025-08-27 20:56:42,061 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:56:43,436 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:56:46,529 - INFO - Tabela "poetic-standard-439816-e6.varejo.estoque" criada e dados enviados com sucesso!
+2025-08-27 20:56:46,531 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:56:47,853 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:56:50,612 - INFO - Tabela "poetic-standard-439816-e6.varejo.vendas" criada e dados enviados com sucesso!
+2025-08-27 20:56:50,613 - INFO - Conexão com BigQuery criada com sucesso!
+2025-08-27 20:56:51,939 - INFO - Dataset poetic-standard-439816-e6.varejo criado ou já existente.
+2025-08-27 20:56:54,664 - INFO - Tabela "poetic-standard-439816-e6.varejo.consolidado" criada e dados enviados com sucesso!
+2025-08-27 20:56:54,690 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:56:54,744 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:56:57,655 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:56:57,728 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
+2025-08-27 20:57:02,073 - INFO - Arquivo consolidado gerado com sucesso!
+2025-08-27 20:57:02,152 - INFO - ZIP com todos os clientes gerado com sucesso: clientes.zip
